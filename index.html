@@ -3,131 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 New Home Celebration! 🎉</title>
+    <title>🎉 Celebration Time! 🎉</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
             background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
+            animation: gradientShift 3s ease infinite;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
-        
+
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
-        .container {
+
+        .celebration-container {
             text-align: center;
             background: rgba(255, 255, 255, 0.9);
-            padding: 3rem;
+            padding: 40px;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            max-width: 600px;
+            backdrop-filter: blur(10px);
             position: relative;
-            animation: float 6s ease-in-out infinite;
+            overflow: hidden;
+            max-width: 600px;
         }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
+
         h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
             color: #2c3e50;
-            font-size: 3rem;
-            margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             animation: bounce 2s infinite;
         }
-        
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
         }
-        
-        .names {
-            font-size: 2.5rem;
+
+        .friends {
+            font-size: 2em;
+            margin: 30px 0;
             color: #e74c3c;
-            margin: 2rem 0;
             font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-        
+
         .message {
-            font-size: 1.5rem;
+            font-size: 1.3em;
             color: #34495e;
-            margin: 2rem 0;
+            margin: 20px 0;
             line-height: 1.6;
         }
-        
-        .house {
-            font-size: 5rem;
-            animation: wiggle 3s ease-in-out infinite;
-            margin: 1rem 0;
-        }
-        
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(3deg); }
-            75% { transform: rotate(-3deg); }
-        }
-        
+
         .confetti {
             position: absolute;
             width: 10px;
             height: 10px;
             background: #f39c12;
-            animation: confetti-fall 3s linear infinite;
+            animation: fall 3s linear infinite;
         }
-        
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
+
+        .confetti:nth-child(1) { left: 10%; animation-delay: 0s; background: #e74c3c; }
+        .confetti:nth-child(2) { left: 20%; animation-delay: 0.5s; background: #3498db; }
+        .confetti:nth-child(3) { left: 30%; animation-delay: 1s; background: #2ecc71; }
+        .confetti:nth-child(4) { left: 40%; animation-delay: 1.5s; background: #f39c12; }
+        .confetti:nth-child(5) { left: 50%; animation-delay: 2s; background: #9b59b6; }
+        .confetti:nth-child(6) { left: 60%; animation-delay: 0.3s; background: #e67e22; }
+        .confetti:nth-child(7) { left: 70%; animation-delay: 0.8s; background: #1abc9c; }
+        .confetti:nth-child(8) { left: 80%; animation-delay: 1.3s; background: #34495e; }
+        .confetti:nth-child(9) { left: 90%; animation-delay: 1.8s; background: #e74c3c; }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
         }
-        
-        .confetti:nth-child(1) { left: 10%; background: #e74c3c; animation-delay: 0s; }
-        .confetti:nth-child(2) { left: 20%; background: #3498db; animation-delay: 0.5s; }
-        .confetti:nth-child(3) { left: 30%; background: #2ecc71; animation-delay: 1s; }
-        .confetti:nth-child(4) { left: 40%; background: #f39c12; animation-delay: 1.5s; }
-        .confetti:nth-child(5) { left: 50%; background: #9b59b6; animation-delay: 2s; }
-        .confetti:nth-child(6) { left: 60%; background: #e67e22; animation-delay: 2.5s; }
-        .confetti:nth-child(7) { left: 70%; background: #1abc9c; animation-delay: 0.2s; }
-        .confetti:nth-child(8) { left: 80%; background: #e91e63; animation-delay: 0.7s; }
-        .confetti:nth-child(9) { left: 90%; background: #ff5722; animation-delay: 1.2s; }
-        .confetti:nth-child(10) { left: 15%; background: #795548; animation-delay: 1.7s; }
-        
+
+        .house-emoji {
+            font-size: 4em;
+            animation: swing 2s ease-in-out infinite;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
         .celebration-text {
-            font-size: 1.2rem;
             color: #27ae60;
-            margin-top: 2rem;
             font-weight: bold;
+            font-size: 1.5em;
+            margin: 15px 0;
         }
-        
-        .hearts {
-            font-size: 2rem;
-            color: #e74c3c;
-            animation: heartbeat 1.5s ease-in-out infinite;
+
+        .sparkle {
+            animation: sparkle 1.5s ease-in-out infinite;
         }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
         }
     </style>
 </head>
@@ -141,20 +128,25 @@
     <div class="confetti"></div>
     <div class="confetti"></div>
     <div class="confetti"></div>
-    <div class="confetti"></div>
-    
-    <div class="container">
-        <h1>🎉 CONGRATULATIONS! 🎉</h1>
-        <div class="names">Noah, Max & Lauren!</div>
-        <div class="house">🏠</div>
+
+    <div class="celebration-container">
+        <h1 class="sparkle">🎉 CELEBRATION TIME! 🎉</h1>
+        
+        <div class="friends">Noah, Max & Lauren!</div>
+        
+        <div class="house-emoji">🏠</div>
+        
+        <div class="celebration-text">New Home, New Adventures!</div>
+        
         <div class="message">
-            Welcome to your new adventure together!<br>
-            May your home be filled with laughter,<br>
-            love, and amazing memories! 
+            Congratulations on your amazing new chapter! 🥳<br>
+            Here's to new memories, late night conversations, and making this house feel like home! 
+            <br><br>
+            <span class="sparkle">✨ May your new place be filled with laughter, love, and endless good vibes! ✨</span>
         </div>
-        <div class="hearts">💕 💖 💕</div>
-        <div class="celebration-text">
-            Here's to new beginnings and great friends sharing a home! 🥳
+        
+        <div style="margin-top: 30px; font-size: 2em;">
+            🎊🥂🎈🌟🎉
         </div>
     </div>
 </body>
