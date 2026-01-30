@@ -3,118 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Celebration Time! 🎉</title>
+    <title>🎉 Noah, Max & Lauren's New Adventure!</title>
     <style>
-        body {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
-            background-size: 400% 400%;
-            animation: gradientShift 3s ease infinite;
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .celebration-container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
             position: relative;
-            overflow: hidden;
-            max-width: 600px;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .friends {
-            font-size: 2em;
-            margin: 30px 0;
-            color: #e74c3c;
-            font-weight: bold;
-        }
-
-        .message {
-            font-size: 1.3em;
-            color: #34495e;
-            margin: 20px 0;
-            line-height: 1.6;
         }
 
         .confetti {
             position: absolute;
             width: 10px;
             height: 10px;
-            background: #f39c12;
-            animation: fall 3s linear infinite;
+            background: #ff6b6b;
+            animation: confetti-fall 3s linear infinite;
         }
 
-        .confetti:nth-child(1) { left: 10%; animation-delay: 0s; background: #e74c3c; }
-        .confetti:nth-child(2) { left: 20%; animation-delay: 0.5s; background: #3498db; }
-        .confetti:nth-child(3) { left: 30%; animation-delay: 1s; background: #2ecc71; }
-        .confetti:nth-child(4) { left: 40%; animation-delay: 1.5s; background: #f39c12; }
-        .confetti:nth-child(5) { left: 50%; animation-delay: 2s; background: #9b59b6; }
-        .confetti:nth-child(6) { left: 60%; animation-delay: 0.3s; background: #e67e22; }
-        .confetti:nth-child(7) { left: 70%; animation-delay: 0.8s; background: #1abc9c; }
-        .confetti:nth-child(8) { left: 80%; animation-delay: 1.3s; background: #34495e; }
-        .confetti:nth-child(9) { left: 90%; animation-delay: 1.8s; background: #e74c3c; }
+        .confetti:nth-child(1) { left: 10%; animation-delay: 0s; background: #ff6b6b; }
+        .confetti:nth-child(2) { left: 20%; animation-delay: 0.5s; background: #4ecdc4; }
+        .confetti:nth-child(3) { left: 30%; animation-delay: 1s; background: #45b7d1; }
+        .confetti:nth-child(4) { left: 40%; animation-delay: 1.5s; background: #96ceb4; }
+        .confetti:nth-child(5) { left: 50%; animation-delay: 2s; background: #ffd93d; }
+        .confetti:nth-child(6) { left: 60%; animation-delay: 0.3s; background: #ff9ff3; }
+        .confetti:nth-child(7) { left: 70%; animation-delay: 0.8s; background: #54a0ff; }
+        .confetti:nth-child(8) { left: 80%; animation-delay: 1.3s; background: #5f27cd; }
+        .confetti:nth-child(9) { left: 90%; animation-delay: 1.8s; background: #00d2d3; }
 
-        @keyframes fall {
+        @keyframes confetti-fall {
             0% { transform: translateY(-100vh) rotate(0deg); }
             100% { transform: translateY(100vh) rotate(360deg); }
         }
 
-        .house-emoji {
-            font-size: 4em;
-            animation: swing 2s ease-in-out infinite;
-            display: inline-block;
-            margin: 20px 0;
+        .celebration-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 20px;
+            animation: bounce-in 1s ease-out;
         }
 
-        @keyframes swing {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(5deg); }
-            75% { transform: rotate(-5deg); }
+        @keyframes bounce-in {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        .celebration-text {
-            color: #27ae60;
+        h1 {
+            color: #2c3e50;
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .friends {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .friend {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding: 25px 20px;
+            border-radius: 15px;
+            color: white;
+            font-size: 1.3em;
             font-weight: bold;
-            font-size: 1.5em;
-            margin: 15px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+            min-width: 120px;
         }
 
-        .sparkle {
-            animation: sparkle 1.5s ease-in-out infinite;
+        .friend:nth-child(1) { animation-delay: 0s; background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); }
+        .friend:nth-child(2) { animation-delay: 1s; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .friend:nth-child(3) { animation-delay: 2s; background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
+        .message {
+            color: #34495e;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 30px 0;
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin: 0 10px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .house-icon {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
         }
     </style>
 </head>
@@ -130,24 +155,30 @@
     <div class="confetti"></div>
 
     <div class="celebration-container">
-        <h1 class="sparkle">🎉 CELEBRATION TIME! 🎉</h1>
+        <h1>🎉 CONGRATULATIONS! 🎉</h1>
+        <p class="subtitle">A new chapter begins...</p>
         
-        <div class="friends">Noah, Max & Lauren!</div>
-        
-        <div class="house-emoji">🏠</div>
-        
-        <div class="celebration-text">New Home, New Adventures!</div>
+        <div class="friends">
+            <div class="friend">Noah</div>
+            <div class="friend">Max</div>
+            <div class="friend">Lauren</div>
+        </div>
+
+        <div class="house-icon">🏠</div>
         
         <div class="message">
-            Congratulations on your amazing new chapter! 🥳<br>
-            Here's to new memories, late night conversations, and making this house feel like home! 
+            <strong>You three are starting an amazing new adventure together!</strong><br>
+            Here's to new memories, late night conversations, shared meals, and all the fun times ahead in your new home!
             <br><br>
-            <span class="sparkle">✨ May your new place be filled with laughter, love, and endless good vibes! ✨</span>
+            <span class="emoji">🥳</span>
+            <span class="emoji">🎊</span>
+            <span class="emoji">🏡</span>
+            <span class="emoji">❤️</span>
         </div>
         
-        <div style="margin-top: 30px; font-size: 2em;">
-            🎊🥂🎈🌟🎉
-        </div>
+        <p style="color: #7f8c8d; margin-top: 30px; font-style: italic;">
+            "Home is where the heart is, and yours is with great friends!"
+        </p>
     </div>
 </body>
 </html>
